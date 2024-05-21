@@ -1,11 +1,16 @@
 using UnityEngine;
-public class BackroundMusic : VolumePanel
+using UnityEngine.UI;
+
+public class BackroundMusic : MonoBehaviour
 {
+    protected const string MusicVolume = nameof(MusicVolume);
+
+    [SerializeField] private AudioPanel _audioPanel;
+    [SerializeField] private Slider _slider;
+
     private void Start() => _slider.onValueChanged.AddListener(OnVolumeChanged);
 
     private void OnDisable() => _slider.onValueChanged.RemoveListener(OnVolumeChanged);
 
-    protected override void OnMuteToggle(bool isMuted) => _slider.value = isMuted ? 0f : 1f;
-
-    private void OnVolumeChanged(float volume) => _audioMixer.audioMixer.SetFloat(MusicVolume, Mathf.Lerp(_minValueMusic, _maxValueMusic, volume));
+    public void OnVolumeChanged(float volume) => _audioPanel.SetVolume(MusicVolume, volume);
 }

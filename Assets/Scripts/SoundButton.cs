@@ -1,8 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SoundButton : VolumePanel
+public class SoundButton : MonoBehaviour
 {
+    protected const string EffectButton = nameof(EffectButton);
+
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private Button _button;
+    [SerializeField] private AudioPanel _audioPanel;
+    [SerializeField] private Slider _slider;
 
     private void Start()
     {
@@ -13,12 +19,10 @@ public class SoundButton : VolumePanel
     private void OnDisable()
     {
         _button.onClick.RemoveListener(PlaySound);
-        _slider.onValueChanged.RemoveListener(ToggleMusic);
+        _slider.onValueChanged.AddListener(ToggleMusic);
     }
 
-    protected override void OnMuteToggle(bool isMuted) => _slider.value = isMuted ? 0f : 1f;
-
-    private void ToggleMusic(float volume) => _audioMixer.audioMixer.SetFloat(EffectButton, Mathf.Lerp(_minValueMusic, _maxValueMusic, volume));
+    private void ToggleMusic(float volume) => _audioPanel.SetVolume(EffectButton, volume);
 
     private void PlaySound() => _audioSource.Play();
 }
