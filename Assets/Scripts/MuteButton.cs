@@ -1,41 +1,19 @@
-using UnityEngine;
-using UnityEngine.UI;
 
-public class MuteButton : MonoBehaviour
+public class MuteButton : AudioMixerHandler
 {
     private const string MasterMusic = nameof(MasterMusic);
 
-    [SerializeField] private Button _muteButton;
-    [SerializeField] private AudioPanel _audioPanel;
-    [SerializeField] private Slider _volumeSlider;
-
     private bool _isMuted = false;
 
-    private void Start()
-    {
-        _muteButton.onClick.AddListener(ToggleMute);
-        _volumeSlider.onValueChanged.AddListener(SetMusicVolume);
-    }
-
-    private void OnDisable()
-    {
-        _muteButton.onClick.RemoveListener(ToggleMute);
-        _volumeSlider.onValueChanged.RemoveListener(SetMusicVolume);
-    }
-
-    private void ToggleMute()
+    public void ToggleMute()
     {
         _isMuted = !_isMuted;
 
         if (_isMuted)
-            _audioPanel.SetVolume(MasterMusic, 0);
+            _mixer.SetFloat(MasterMusic, _minValueMusic);
         else
-            SetMusicVolume(_volumeSlider.value);
+            _mixer.SetFloat(MasterMusic, _maxValueMusic);
     }
 
-    private void SetMusicVolume(float volume)
-    {
-        if (_isMuted == false)
-            _audioPanel.SetVolume(MasterMusic, volume);
-    }
+    public void OnSliderValueChanged(float sliderValue) => SetVolume(MasterMusic, sliderValue);
 }

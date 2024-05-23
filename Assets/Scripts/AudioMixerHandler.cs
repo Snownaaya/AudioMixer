@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioPanel : MonoBehaviour
+public class AudioMixerHandler : MonoBehaviour
 {
-    [SerializeField] private AudioMixer _mixer;
+    [SerializeField] protected AudioMixer _mixer;
 
-    private float _minValueMusic = -80f;
-    private float _maxValueMusic = 0f;
+    protected float _minValueMusic = -80f;
+    protected float _maxValueMusic = 0f;
 
     public void SetVolume(string parameter, float volume) => _mixer.SetFloat(parameter, Mathf.Lerp(_minValueMusic, _maxValueMusic, volume));
 }

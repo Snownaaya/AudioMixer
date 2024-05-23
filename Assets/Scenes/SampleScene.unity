@@ -152,7 +152,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1339546810240191834, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   m_audioClip: {fileID: 8300000, guid: 98994f2bd28f5464dae005456a92f673, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6187a320ad049a4b85493ab59a5ee9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioPanel: {fileID: 563877200}
+  _mixer: {fileID: -1339546810240191834, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   _slider: {fileID: 2071959589}
 --- !u!1 &65037328
 GameObject:
@@ -402,10 +402,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
+    m_HighlightedColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.047169805, g: 0.046502307, b: 0.046502307, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_DisabledColor: {r: 0.084905684, g: 0.08290319, b: 0.08290319, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -588,9 +588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   _audioSource: {fileID: 87603757}
   _button: {fileID: 1874055805}
-  _audioPanel: {fileID: 563877200}
 --- !u!1 &88049688
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,9 +915,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   _audioSource: {fileID: 395898909}
   _button: {fileID: 2021035154}
-  _audioPanel: {fileID: 563877200}
 --- !u!1 &422675618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,51 +1307,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &563877199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 563877201}
-  - component: {fileID: 563877200}
-  m_Layer: 0
-  m_Name: AudioPanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &563877200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563877199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed351d4ec4f600e44a9adce4b31dceaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
---- !u!4 &563877201
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563877199}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -110.85484, y: -11.442286, z: 6499.1147}
-  m_LocalScale: {x: 108, y: 108, z: 108}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1023700517}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1008606504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1493,6 @@ RectTransform:
   - {fileID: 68485232}
   - {fileID: 1881061170}
   - {fileID: 2071959588}
-  - {fileID: 563877201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1962,9 +1916,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1865182479}
+      - m_Target: {fileID: 1865182481}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: 
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2158,9 +2112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c985295c609d14695c4343029cd19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mixer: {fileID: 24300002, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   _muteButton: {fileID: 1786265249}
-  _audioPanel: {fileID: 563877200}
-  _volumeSlider: {fileID: 68485233}
+  _volumeSliders:
+  - {fileID: 68485233}
+  - {fileID: 1881061171}
+  - {fileID: 2071959589}
 --- !u!1 &1853757306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,9 +2338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   _audioSource: {fileID: 1865182481}
   _button: {fileID: 1750863044}
-  _audioPanel: {fileID: 563877200}
 --- !u!1 &1874055803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,9 +2424,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 87603755}
+      - m_Target: {fileID: 87603757}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: 
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2578,10 +2535,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2607,9 +2564,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1865182479}
-        m_TargetAssemblyTypeName: VolumePanel, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1865182482}
+        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2619,8 +2576,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 395898907}
-        m_TargetAssemblyTypeName: VolumePanel, Assembly-CSharp
+      - m_Target: {fileID: 395898909}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2631,8 +2588,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 87603755}
-        m_TargetAssemblyTypeName: VolumePanel, Assembly-CSharp
+      - m_Target: {fileID: 87603757}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2801,9 +2758,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 395898907}
+      - m_Target: {fileID: 395898909}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: 
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2912,10 +2869,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.9575472, b: 0.9575472, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_PressedColor: {r: 0.066037714, g: 0.063234225, b: 0.063234225, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_DisabledColor: {r: 0.09433961, g: 0.090334624, b: 0.090334624, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
