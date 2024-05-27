@@ -10,9 +10,15 @@ public class MuteButton : AudioMixerHandler
         _isMuted = !_isMuted;
 
         if (_isMuted)
+        {
             _mixer.SetFloat(MasterMusic, _minValueMusic);
+            _volumeSlider.interactable = false;
+        }
         else
-            _mixer.SetFloat(MasterMusic, _maxValueMusic);
+        {
+            _mixer.SetFloat(MasterMusic, _lastValueMusic);
+            _volumeSlider.interactable = true;
+        }
     }
 
     public void OnSliderValueChanged(float sliderValue) => SetVolume(MasterMusic, sliderValue);

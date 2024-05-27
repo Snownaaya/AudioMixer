@@ -152,7 +152,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1339546810240191834, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
   m_audioClip: {fileID: 8300000, guid: 98994f2bd28f5464dae005456a92f673, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -264,8 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6187a320ad049a4b85493ab59a5ee9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: -1339546810240191834, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
-  _slider: {fileID: 2071959589}
+  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
+  _volumeSlider: {fileID: 2071959589}
+  _button: {fileID: 1786265249}
 --- !u!1 &65037328
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,9 +432,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1786265247}
-        m_TargetAssemblyTypeName: VolumePanel, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1786265252}
+        m_TargetAssemblyTypeName: MuteButton, Assembly-CSharp
+        m_MethodName: OnSliderValueChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -441,7 +442,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: -80
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &87603755
 GameObject:
@@ -588,9 +589,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
-  _audioSource: {fileID: 87603757}
+  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
+  _volumeSlider: {fileID: 1881061171}
   _button: {fileID: 1874055805}
+  _audioSource: {fileID: 87603757}
 --- !u!1 &88049688
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,9 +917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
-  _audioSource: {fileID: 395898909}
+  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
+  _volumeSlider: {fileID: 1881061171}
   _button: {fileID: 2021035154}
+  _audioSource: {fileID: 395898909}
 --- !u!1 &422675618
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,16 +2054,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1786265252}
-        m_TargetAssemblyTypeName: VolumePanel, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: MuteButton, Assembly-CSharp
+        m_MethodName: ToggleMute
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: -80
+          m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1786265250
 MonoBehaviour:
@@ -2112,12 +2115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c985295c609d14695c4343029cd19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
-  _muteButton: {fileID: 1786265249}
-  _volumeSliders:
-  - {fileID: 68485233}
-  - {fileID: 1881061171}
-  - {fileID: 2071959589}
+  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
+  _volumeSlider: {fileID: 68485233}
+  _button: {fileID: 1786265249}
 --- !u!1 &1853757306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,9 +2338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fdd95c4514e145871e5909daceaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mixer: {fileID: 5911972406617765516, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
-  _audioSource: {fileID: 1865182481}
+  _mixer: {fileID: 24100000, guid: 24de399ad58fb004485700fd75f40d58, type: 2}
+  _volumeSlider: {fileID: 1881061171}
   _button: {fileID: 1750863044}
+  _audioSource: {fileID: 1865182481}
 --- !u!1 &1874055803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,7 +2567,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1865182482}
         m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
-        m_MethodName: PlaySound
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2576,8 +2577,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 395898909}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 395898910}
+        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2588,8 +2589,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 87603757}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 87603758}
+        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -2898,10 +2899,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 311827}
+      - m_Target: {fileID: 311830}
         m_TargetAssemblyTypeName: BackroundMusic, Assembly-CSharp
         m_MethodName: 
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
