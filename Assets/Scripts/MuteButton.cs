@@ -1,7 +1,18 @@
+using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
-public class MuteButton : AudioMixerHandler
+public class MuteButton : MonoBehaviour
 {
     private const string MasterMusic = nameof(MasterMusic);
+
+    [SerializeField] private AudioMixer _mixer;
+    [SerializeField] private Slider _volumeSlider;
+    [SerializeField] private Button _button;
+
+    private float _minValueMusic = -80f;
+    private float _maxValueMusic = 20f;
+    private float _lastValueMusic = 0f;
 
     private bool _isMuted = false;
 
@@ -21,5 +32,10 @@ public class MuteButton : AudioMixerHandler
         }
     }
 
-    public void OnSliderValueChanged(float sliderValue) => SetVolume(MasterMusic, sliderValue);
+    public void SetVolume(float volume)
+    {
+        float logVolume = Mathf.Log10(volume) * 20;
+        logVolume = Mathf.Clamp(logVolume, _minValueMusic, _maxValueMusic);
+        _mixer.SetFloat(MasterMusic, logVolume);
+    }
 }
